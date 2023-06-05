@@ -1,0 +1,59 @@
+﻿@model SedmiProjekt.Models.Albumi
+
+<h1>Ažuriraj karakteristike albuma</h1>
+<h4>Ažuriraj album @Model.Album</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Izvodac" class="control-label"></label>
+                <input asp-for="Izvodac" class="form-control" />
+                <span asp-validation-for="Izvodac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Album" class="control-label"></label>
+                <input asp-for="Album" class="form-control" />
+                <span asp-validation-for="Album" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cijena" class="control-label"></label>
+                <input asp-for="Cijena" class="form-control" />
+                <span asp-validation-for="Cijena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Datum" class="control-label"></label>
+                <input asp-for="Datum" class="form-control" />
+                <span asp-validation-for="Datum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SlikaUrl" class="control-label"></label>
+                <input asp-for="SlikaUrl" class="form-control" />
+                <span asp-validation-for="SlikaUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZanrId" class="control-label"></label>
+                <select asp-for="ZanrId" class="form-control" asp-items="ViewBag.ZanrId"></select>
+                <span asp-validation-for="ZanrId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Spremi" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Natrag na popis albuma</a>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial.cshtml");
+    }
+
+}
+
